@@ -203,15 +203,7 @@ SELECT tipo1 FROM Pokemon GROUP BY tipo1;
 
 USE pokedex;
 
-SELECT
-	numero,
-	nome,
-	cor
-FROM
-	Pokemon
-WHERE
-	nome LIKE 'D%'
-;
+SELECT numero, nome, cor FROM Pokemon WHERE nome LIKE 'D%';
 
 ```
 
@@ -221,13 +213,7 @@ WHERE
 
 USE pokedex;
 
-SELECT
-	*
-FROM
-	Pokemon
-ORDER BY total DESC
-LIMIT 1
-;
+SELECT * FROM Pokemon ORDER BY total DESC LIMIT 1;
 
 ```
 
@@ -237,18 +223,7 @@ LIMIT 1
 
 USE pokedex;
 
-SELECT
-	numero,
-	nome,
-	defesa,
-	ataque
-FROM
-	Pokemon
-WHERE
-	defesa > 60
-		AND ataque <= 70
-ORDER BY total DESC
-;
+SELECT numero, nome, defesa, ataque FROM Pokemon WHERE defesa > 60 AND ataque <= 70 ORDER BY total DESC;
 
 ```
 
@@ -258,16 +233,7 @@ ORDER BY total DESC
 
 USE pokedex;
 
-SELECT
-	*
-FROM
-	Pokemon
-WHERE
-	cor != 'Green'
-		AND tipo1 LIKE 'Planta'
-		AND tipo2 LIKE 'Venenoso'
-ORDER BY nome ASC
-;
+SELECT * FROM Pokemon WHERE cor != 'Green' AND tipo1 LIKE 'Planta' AND tipo2 LIKE 'Venenoso' ORDER BY nome ASC;
 
 ```
 
@@ -277,14 +243,7 @@ ORDER BY nome ASC
 
 USE pokedex;
 
-SELECT
-	*
-FROM
-	Pokemon
-WHERE
-	nome LIKE '____Y'
-ORDER BY nome ASC
-;
+SELECT * FROM Pokemon WHERE nome LIKE '____Y' ORDER BY nome ASC;
 
 ```
 
@@ -294,11 +253,7 @@ ORDER BY nome ASC
 
 USE pokedex;
 
-SELECT
-	MAX(ataque_especial)
-FROM
-	Pokemon
-;
+SELECT MAX(ataque_especial) FROM Pokemon;
 
 ```
 
@@ -307,15 +262,7 @@ FROM
 ```sql
 USE pokedex;
 
-SELECT
-	numero,
-	nome,
-	altura_m
-FROM
-	Pokemon
-WHERE
-	altura_m > 2.1
-;
+SELECT numero, nome, altura_m FROM Pokemon WHERE altura_m > 2.1;
 
 ```
 
@@ -324,13 +271,7 @@ WHERE
 ```sql
 USE pokedex;
 
-SELECT
-	cor
-FROM
-	Pokemon
-GROUP BY cor
-ORDER BY cor ASC
-;
+SELECT cor FROM Pokemon GROUP BY cor ORDER BY cor ASC;
 
 ```
 
@@ -339,17 +280,7 @@ ORDER BY cor ASC
 ```sql
 USE pokedex;
 
-SELECT
-	nome,
-	velocidade
-FROM
-	Pokemon
-WHERE
-	velocidade > 30 AND velocidade < 70
-ORDER BY
-	nome ASC,
-	velocidade DESC
-;
+SELECT nome, velocidade FROM Pokemon WHERE velocidade > 30 AND velocidade < 70 ORDER BY nome ASC, velocidade DESC;
 
 ```
 
@@ -359,14 +290,7 @@ ORDER BY
 
 USE pokedex;
 
-SELECT
-	*
-FROM
-	Pokemon
-WHERE
-	lendario = 1
-ORDER BY total DESC
-;
+SELECT * FROM Pokemon WHERE lendario = 1 ORDER BY total DESC;
 
 ```
 
@@ -376,14 +300,7 @@ ORDER BY total DESC
 ```sql
 USE pokedex;
 
-SELECT
-	*
-FROM
-	Pokemon
-WHERE
-	geracao = 1
-		AND taxa_captura = 255
-;
+SELECT * FROM Pokemon WHERE geracao = 1 AND taxa_captura = 255;
 ```
 
 
@@ -392,17 +309,12 @@ WHERE
 ```sql
 USE pokedex;
 
-SELECT
-	*
-FROM
-	Pokemon
-WHERE
-	nome IN (
-		'Pikachu',
-		'Squirtle',
-		'Bulbasaur',
-		'Charmander'
-	)
+SELECT * FROM Pokemon WHERE nome IN (
+'Pikachu',
+'Squirtle',
+'Bulbasaur',
+'Charmander'
+)
 ORDER BY total DESC
 ;
 
