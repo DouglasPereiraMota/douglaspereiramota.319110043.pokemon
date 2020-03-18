@@ -326,18 +326,7 @@ Ordene os resultados crescente por `taxa_captura` e decrescente pelo `total`.
 ```sql
 USE pokedex;
 
-SELECT
-	*
-FROM
-	Pokemon
-WHERE
-	geracao = 1
-	 AND nome LIKE 'D%'
-	 AND tipo2 IS NULL
-ORDER BY
-	taxa_captura ASC,
-	total DESC
-;
+SELECT * FROM Pokemon WHERE geracao = 1 AND nome LIKE 'D%' AND tipo2 IS NULL ORDER BY taxa_captura ASC, total DESC;
 ```
 
 30. Qual é o ranking dos top 5 pokémons lendários com maior `taxa_captura` e `total`? Apresente apenas `numero, nome, total, taxa_captura` nos resultados.
@@ -346,20 +335,7 @@ ORDER BY
 
 USE pokedex;
 
-SELECT
-	numero,
-	nome,
-	total,
-	taxa_captura
-FROM
-	Pokemon
-WHERE
-	lendario = 1
-ORDER BY
-	taxa_captura DESC,
-	total DESC
-LIMIT 5
-;
+SELECT numero, nome, total, taxa_captura FROM Pokemon WHERE lendario = 1 ORDER BY taxa_captura DESC, total DESC LIMIT 5;
 ```
 
 31. Selecione o `numero`, `nome`, `peso_kg` dos pokémons com peso entre 2kg e 3kgs?
@@ -368,15 +344,7 @@ LIMIT 5
 
 USE pokedex;
 
-SELECT
-	numero,
-	nome,
-	peso_kg
-FROM
-	Pokemon
-WHERE
-	peso_kg > 2 AND peso_kg < 3
-;
+SELECT numero, nome, peso_kg FROM Pokemon WHERE peso_kg > 2 AND peso_kg < 3;
 
 ```
 
@@ -386,18 +354,7 @@ WHERE
 
 USE pokedex;
 
-SELECT
-	numero,
-	nome,
-	tipo1,
-	tipo2
-FROM
-	Pokemon
-WHERE
-	tipo1 LIKE 'Normal'
-		AND tipo2 IS NULL
-		AND lendario = 0
-;
+SELECT numero, nome, tipo1, tipo2 FROM Pokemon WHERE tipo1 LIKE 'Normal' AND tipo2 IS NULL AND lendario = 0;
 
 ```
 
@@ -407,19 +364,7 @@ WHERE
 
 USE pokedex;
 
-SELECT
-	numero,
-	nome,
-	tipo1,
-	tipo2,
-	cor
-FROM
-	Pokemon
-WHERE
-	tipo1 LIKE 'Water'
-		AND COR != 'Blue'
-ORDER BY nome ASC
-;
+SELECT numero, nome, tipo1, tipo2, cor FROM Pokemon WHERE tipo1 LIKE 'Water' AND COR != 'Blue' ORDER BY nome ASC;
 
 ```
 
