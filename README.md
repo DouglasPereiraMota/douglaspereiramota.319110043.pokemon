@@ -172,15 +172,7 @@ SELECT numero,nome,tipo1,tipo2 FROM Pokemon WHERE peso_kg > 100 AND peso_kg < 50
 
 USE pokedex;
 
-SELECT
-	numero,
-	nome,
-	velocidade
-FROM
-	Pokemon
-ORDER BY velocidade DESC
-LIMIT 10
-;
+SELECT numero, nome, velocidade FROM Pokemon ORDER BY velocidade DESC LIMIT 10;
 
 ``` 
 
@@ -191,19 +183,7 @@ LIMIT 10
 
 USE pokedex;
 
-SELECT
-	numero,
-	nome,
-	tipo1,
-	tipo2,
-	taxa_captura
-FROM
-	Pokemon
-WHERE
-	taxa_captura > 100
-	 AND tipo2 IS NOT NULL
-ORDER BY taxa_captura DESC
-;
+SELECT numero, nome, tipo1, tipo2, taxa_captura FROM Pokemon WHERE taxa_captura > 100 AND tipo2 IS NOT NULL ORDER BY taxa_captura DESC;
 
 ```
 
@@ -213,13 +193,7 @@ ORDER BY taxa_captura DESC
 
 USE pokedex;
 
-SELECT
-	tipo1
-FROM
-	Pokemon
-GROUP BY
-	tipo1
-;
+SELECT tipo1 FROM Pokemon GROUP BY tipo1;
 
 ```
 
