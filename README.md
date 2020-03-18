@@ -373,13 +373,7 @@ SELECT numero, nome, tipo1, tipo2, cor FROM Pokemon WHERE tipo1 LIKE 'Water' AND
 ```sql
 USE pokedex;
 
-SELECT
-	*
-FROM
-	Pokemon
-ORDER BY velocidade ASC
-LIMIT 10
-;
+SELECT * FROM Pokemon ORDER BY velocidade ASC LIMIT 10;
 
 ```
 
@@ -389,13 +383,7 @@ LIMIT 10
 
 USE pokedex;
 
-SELECT
-	*
-FROM
-	Pokemon
-WHERE
-	nome LIKE 'A%a'
-;
+SELECT * FROM Pokemon WHERE nome LIKE 'A%a';
 
 ```
 
@@ -405,19 +393,7 @@ WHERE
 
 USE pokedex;
 
-SELECT
-	numero,
-	nome,
-	tipo1,
-	tipo2,
-	cor
-FROM
-	Pokemon
-WHERE
-	tipo1 LIKE 'Fire'
-		AND COR != 'Red'
-ORDER BY nome ASC
-;
+SELECT numero, nome, tipo1, tipo2, cor FROM Pokemon WHERE tipo1 LIKE 'Fire' AND COR != 'Red' ORDER BY nome ASC;
 
 ```
 
@@ -427,13 +403,7 @@ ORDER BY nome ASC
 
 USE pokedex;
 
-SELECT
-	peso_kg
-FROM
-	Pokemon
-GROUP BY peso_kg
-ORDER BY peso_kg ASC
-;
+SELECT peso_kg FROM Pokemon GROUP BY peso_kg ORDER BY peso_kg ASC;
 
 ```
 
@@ -443,18 +413,7 @@ ORDER BY peso_kg ASC
 
 USE pokedex;
 
-SELECT
-	numero,
-	nome,
-	hp
-FROM
-	Pokemon
-WHERE
-	hp > 0 AND hp < 100
-ORDER BY
-	hp ASC,
-	nome ASC
-;
+SELECT numero, nome, hp FROM Pokemon WHERE hp > 0 AND hp < 100 ORDER BY hp ASC, nome ASC;
 
 ```
 
@@ -464,20 +423,7 @@ ORDER BY
 
 USE pokedex;
 
-SELECT
-	numero,
-	nome,
-	hp,
-	ataque,
-	defesa,
-	total
-FROM
-	Pokemon
-WHERE
-	hp >= 100
-		AND ataque >= 100
-		AND defesa >= 100
-;
+SELECT numero, nome, hp, ataque, defesa, total FROM Pokemon WHERE hp >= 100 AND ataque >= 100 AND defesa >= 100;
 
 ```
 
@@ -487,16 +433,7 @@ WHERE
 
 USE pokedex;
 
-SELECT
-	*
-FROM
-	Pokemon
-WHERE
-	tipo1 LIKE 'Water'
-		AND tipo2 LIKE 'Gelo'
-GROUP BY numero
-ORDER  BY total DESC
-;
+SELECT * FROM Pokemon WHERE tipo1 LIKE 'Water' AND tipo2 LIKE 'Gelo' GROUP BY numero ORDER  BY total DESC;
 
 ```
 
