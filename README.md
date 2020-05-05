@@ -436,3 +436,228 @@ USE pokedex;
 SELECT * FROM Pokemon WHERE tipo1 LIKE 'Water' AND tipo2 LIKE 'Gelo' GROUP BY numero ORDER  BY total DESC;
 
 ```
+
+
+2. Exercícios de Funções Agregadas
+Quais são os valores máximo e mínimo das seguintes colunas:
+total
+hp
+ataque
+defesa
+ataque_especial
+defesa_especial
+velocidade
+taxa_captura
+USE pokedex;
+
+SELECT
+	MIN(total) AS 'min_total',
+	MAX(total) AS 'max_total',
+	MIN(hp) AS 'min_hp',
+	MAX(hp) AS 'max_hp',
+	MIN(ataque) AS 'min_ataque',
+	MAX(ataque) AS 'max_ataque',
+	MIN(defesa) AS 'min_defesa',
+	MAX(defesa) AS 'max_defesa',
+	MIN(ataque_especial) AS 'min_ataque_especial',
+	MAX(ataque_especial) AS 'max_ataque_especial',
+	MIN(defesa_especial) AS 'min_defesa_especial',
+	MAX(defesa_especial) AS 'max_defesa_especial',
+	MIN(velocidade) AS 'min_velocidade',
+	MAX(velocidade) AS 'max_velocidade',
+	MIN(taxa_captura) AS 'min_taxa_captura',
+	MAX(taxa_captura) AS 'max_taxa_captura'
+FROM
+	Pokemon
+;
+Quantas cores diferentes possuem os pokémons?
+USE pokedex;
+
+SELECT
+	COUNT(DISTINCT cor) AS 'quantidade'
+FROM
+	Pokemon
+;
+Qual é o peso médio dos pokémons?
+USE pokedex;
+
+SELECT
+	AVG(DISTINCT peso_kg) AS 'peso_medio'
+FROM
+	Pokemon
+;
+Qual é a soma das alturas dos pokémons?
+USE pokedex;
+
+SELECT
+	SUM(altura_m) AS 'total'
+FROM
+	Pokemon
+;
+Quantos pokémons estão cadastrados no banco de dados?
+USE pokedex;
+
+SELECT
+	COUNT(*) AS 'quantidade'
+FROM
+	Pokemon
+;
+Qual é o altura média dos pokémons?
+USE pokedex;
+
+SELECT
+	AVG(altura_m) AS 'atura_m_media'
+FROM
+	Pokemon
+;
+Qual é o desvio padrão do valor de HP dos pokémons?
+USE pokedex;
+
+SELECT
+	STD(hp) AS 'desvio_padrao'
+FROM
+	Pokemon
+;
+Quantos pokémons possuem tipo2?
+USE pokedex;
+
+SELECT
+	COUNT(*) AS 'quantidade'
+FROM
+	Pokemon
+WHERE tipo2 IS NOT NULL
+;
+Quantos são os diferentes tipos primários dos pokémons?
+USE pokedex;
+
+SELECT
+	COUNT(DISTINCT tipo1) AS 'quantidade'
+FROM
+	Pokemon
+;
+Qual é a soma dos pesos dos pokémons?
+USE pokedex;
+
+SELECT
+	SUM(peso_kg) AS 'total'
+FROM
+	Pokemon
+;
+Qual é a quantidade de Pokémons lendários e não lendários
+USE pokedex;
+
+SELECT
+	lendario,
+	COUNT(lendario) AS 'quantidade'
+FROM
+	Pokemon
+GROUP BY lendario
+ORDER BY COUNT(lendario) DESC
+;
+Qual é a quantidade de pokémons para cada uma das diferentes cores ordenadas decrescente?
+USE pokedex;
+
+SELECT
+	cor,
+	COUNT(cor) AS 'quantidade'
+FROM
+	Pokemon
+GROUP BY cor
+ORDER BY COUNT(cor) DESC
+;
+Qual é a média de peso e altura de cada um dos tipos primários dos pokémons? Ordene os resultados decrescente respectivamente por média de peso e altura.
+USE pokedex;
+
+SELECT
+	tipo1,
+	AVG(peso_kg) AS 'peso_medio',
+	AVG(altura_m) AS 'altura_m_medio'
+FROM
+	Pokemon
+GROUP BY tipo1
+ORDER BY AVG(peso_kg) DESC, AVG(altura_m) DESC
+;
+Qual é a taxa de captura média por cor de cada um dos pokémons lendários?
+USE pokedex;
+
+SELECT
+	cor,
+	AVG(taxa_captura) AS 'taxa_captura_medio'
+FROM
+	Pokemon
+WHERE lendario = 1
+GROUP BY cor
+ORDER BY AVG(taxa_captura) DESC
+;
+Qual os tipos primários que possuem a taxa de captura média acima de 100
+USE pokedex;
+
+SELECT
+	tipo1,
+	AVG(taxa_captura) AS 'taxa_captura_medio'
+FROM
+	Pokemon
+WHERE 'taxa_captura_medio' > 100
+GROUP BY tipo1
+ORDER BY taxa_captura_medio DESC
+;
+Agrupados por cor, quais pokémons não lendários possuem média total abaixo de 400
+USE pokedex;
+
+SELECT
+	cor,
+	AVG(total) AS 'total_medio'
+FROM
+	Pokemon
+WHERE lendario = 0 AND 'total_medio' < 400
+GROUP BY cor
+ORDER BY AVG(total) DESC
+;
+Qual o valor máximo total em cada uma das gerações?
+USE pokedex;
+
+SELECT
+	geracao,
+	Max(total) AS 'total_max'
+FROM
+	Pokemon
+GROUP BY geracao
+ORDER BY max(total) DESC
+;
+Quantos pokémons lendários existem em cada uma das gerações?
+USE pokedex;
+
+SELECT
+	geracao,
+	COUNT(lendario) AS 'quantidade'
+FROM
+	Pokemon
+WHERE lendario = 1
+GROUP BY geracao
+ORDER BY COUNT(lendario) DESC
+;
+Em cada uma das gerações, quantos pokémons tem tipos primários e secundários e qual a taxa_captura média deles?
+USE pokedex;
+
+SELECT
+	geracao,
+	COUNT(tipo2) AS 'quantidade',
+	AVG(taxa_captura) AS 'taxa_captura_media'
+FROM
+	Pokemon
+WHERE tipo2 IS NOT NULL
+GROUP BY geracao
+ORDER BY COUNT(tipo2) DESC
+;
+Qual é a quantidade de cores de cada um dos pokémons lendários em todas as gerações?
+USE pokedex;
+
+SELECT
+	COUNT(DISTINCT cor) AS 'quantidade'
+FROM
+	Pokemon
+ORDER BY COUNT(cor) DESC
+;
+REFERÊNCIAS
+Webiste Oficial - Pokémon
+Guia de Estilo SQL · SQL Style Guide
