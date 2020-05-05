@@ -478,7 +478,6 @@ FROM
 
 2. Quantas cores diferentes possuem os pokémos?
 
-`` sql
 USE Pokedex;
 
 SELECT 
@@ -488,6 +487,48 @@ SELECT
 FROM
 
         Pokemon
-        
+
 ;
 `` ``
+
+3. Qual é o peso médio dos pokémons?
+
+USE pokedex;
+
+SELECT
+
+	AVG(DISTINCT peso_kg) AS 'peso_medio'
+
+FROM
+
+	Pokemon
+
+;
+
+4. Qual é a soma das alturas dos pokémons?
+
+USE pokedex;
+
+SELECT
+
+	SUM(altura_m) AS 'total'
+
+FROM
+
+	Pokemon
+
+;
+
+5. Quantos pokémons estão cadastrados no banco de dados?
+
+USE pokedex;
+
+SELECT
+
+	COUNT(*) AS 'quantidade'
+
+FROM
+
+	Pokemon
+
+;
