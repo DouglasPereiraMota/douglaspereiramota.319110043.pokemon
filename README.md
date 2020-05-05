@@ -449,7 +449,7 @@ SELECT * FROM Pokemon WHERE tipo1 LIKE 'Water' AND tipo2 LIKE 'Gelo' GROUP BY nu
     * Velocidade
     * taxa_captura
 
-`` sql
+`` ``sql
 
 USE pokedex;
 
@@ -473,3 +473,17 @@ SELECT
 FROM
 	Pokemon
 ;
+
+`` ``
+
+2. Quantas cores diferentes possuem os pokémos?
+
+`` `` sql
+USE Pokedex;
+
+SELECT 
+        COUNT(DISTINCT cor) AS 'quantidade'
+FROM
+        Pokemon
+;
+`` ``
