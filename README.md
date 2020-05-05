@@ -438,3 +438,13 @@ SELECT * FROM Pokemon WHERE tipo1 LIKE 'Water' AND tipo2 LIKE 'Gelo' GROUP BY nu
 ```
 
 
+
+## 2.Exercícios de Funções Agregadas
+total
+hp
+ataque
+defesa
+ataque_especial
+defesa_especial
+velocidade
+taxa_captura
