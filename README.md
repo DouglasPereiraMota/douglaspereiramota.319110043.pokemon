@@ -643,3 +643,155 @@ GROUP BY cor
 ORDER BY COUNT(cor) DESC
 
 ;
+
+13. Qual é a média de peso e altura de cada um dos tipos primários dos pokémons? Ordene os resultados decrescente respectivamente por média de peso e altura.
+
+USE pokedex;
+
+SELECT
+    tipo1,
+
+	AVG(peso_kg) AS 'peso_medio',
+    
+	AVG(altura_m) AS 'altura_m_medio'
+
+FROM
+	Pokemon
+
+GROUP BY tipo1
+
+ORDER BY AVG(peso_kg) DESC, AVG(altura_m) DESC
+;
+
+14. Qual é a taxa de captura média por cor de cada um dos pokémons lendários?
+
+USE pokedex;
+
+SELECT
+	cor,
+
+	AVG(taxa_captura) AS 'taxa_captura_medio'
+
+FROM
+	Pokemon
+
+WHERE lendario = 1
+
+GROUP BY cor
+
+ORDER BY AVG(taxa_captura) DESC
+;
+
+15. Qual os tipos primários que possuem a taxa de captura média acima de 100
+
+USE pokedex;
+
+SELECT
+	tipo1,
+	AVG(taxa_captura) AS 'taxa_captura_medio'
+
+FROM
+	Pokemon
+
+WHERE 'taxa_captura_medio' > 100
+
+GROUP BY tipo1
+
+ORDER BY taxa_captura_medio DESC
+;
+
+16. Agrupados por cor, quais pokémons não lendários possuem média total abaixo de 400
+
+USE pokedex;
+
+SELECT
+	cor,
+
+	AVG(total) AS 'total_medio'
+
+FROM
+	Pokemon
+
+WHERE lendario = 0 AND 'total_medio' < 400
+
+GROUP BY cor
+
+ORDER BY AVG(total) DESC
+
+;
+
+17. Qual o valor máximo total em cada uma das gerações?
+
+USE pokedex;
+
+SELECT
+	geracao,
+
+	Max(total) AS 'total_max'
+
+FROM
+	Pokemon
+
+GROUP BY geracao
+
+ORDER BY max(total) DESC
+
+;
+
+18. Quantos pokémons lendários existem em cada uma das gerações?
+
+USE pokedex;
+
+SELECT
+	geracao,
+
+	COUNT(lendario) AS 'quantidade'
+    
+FROM
+	Pokemon
+
+WHERE lendario = 1
+
+GROUP BY geracao
+
+ORDER BY COUNT(lendario) DESC
+
+;
+
+19. Em cada uma das gerações, quantos pokémons tem tipos primários e secundários e qual a taxa_captura média deles?
+
+USE pokedex;
+
+SELECT
+	geracao,
+
+	COUNT(tipo2) AS 'quantidade',
+
+	AVG(taxa_captura) AS 'taxa_captura_media'
+
+FROM
+	Pokemon
+
+WHERE tipo2 IS NOT NULL
+
+GROUP BY geracao
+
+ORDER BY COUNT(tipo2) DESC
+
+;
+
+20. Qual é a quantidade de cores de cada um dos pokémons lendários em todas as gerações?
+
+USE pokedex;
+
+SELECT
+	COUNT(DISTINCT cor) AS 'quantidade'
+
+FROM
+	Pokemon
+
+ORDER BY COUNT(cor) DESC
+
+;
+
+
