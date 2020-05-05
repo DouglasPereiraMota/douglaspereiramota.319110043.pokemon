@@ -438,14 +438,39 @@ SELECT * FROM Pokemon WHERE tipo1 LIKE 'Water' AND tipo2 LIKE 'Gelo' GROUP BY nu
 ```
 
 
-## REFERÊNCIAS
+## 2. Exercícios de Funções Agregadas
+ 1.Quais são os valores máximo e mínimo das seguintes colunas:
+total
+hp
+ataque
+defesa
+ataque_especial
+defesa_especial
+velocidade
+taxa_captura
+`` sql
 
-* [Webiste Oficial - Pokémon](https://www.pokemon.com/br/guia-para-pais/)
-* [Guia de Estilo SQL · SQL Style Guide](https://www.sqlstyle.guide/pt-br/)
+USE pokedex;
 
+SELECT
+	MIN(total) AS 'min_total',
+	MAX(total) AS 'max_total',
+	MIN(hp) AS 'min_hp',
+	MAX(hp) AS 'max_hp',
+	MIN(ataque) AS 'min_ataque',
+	MAX(ataque) AS 'max_ataque',
+	MIN(defesa) AS 'min_defesa',
+	MAX(defesa) AS 'max_defesa',
+	MIN(ataque_especial) AS 'min_ataque_especial',
+	MAX(ataque_especial) AS 'max_ataque_especial',
+	MIN(defesa_especial) AS 'min_defesa_especial',
+	MAX(defesa_especial) AS 'max_defesa_especial',
+	MIN(velocidade) AS 'min_velocidade',
+	MAX(velocidade) AS 'max_velocidade',
+	MIN(taxa_captura) AS 'min_taxa_captura',
+	MAX(taxa_captura) AS 'max_taxa_captura'
+FROM
+	Pokemon
+;
 
-
-
-
-
-
+`` ``
