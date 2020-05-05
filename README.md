@@ -437,4 +437,6 @@ SELECT * FROM Pokemon WHERE tipo1 LIKE 'Water' AND tipo2 LIKE 'Gelo' GROUP BY nu
 
 ```
 
+## 2. Exercicios Funçoes agregadas
+
 
