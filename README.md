@@ -478,12 +478,16 @@ FROM
 
 2. Quantas cores diferentes possuem os pokémos?
 
-`` `` sql
+`` sql
 USE Pokedex;
 
 SELECT 
+
         COUNT(DISTINCT cor) AS 'quantidade'
+
 FROM
+
         Pokemon
+        
 ;
 `` ``
