@@ -449,32 +449,48 @@ SELECT * FROM Pokemon WHERE tipo1 LIKE 'Water' AND tipo2 LIKE 'Gelo' GROUP BY nu
     * Velocidade
     * taxa_captura
 
-`` ``sql
 
 USE pokedex;
 
 SELECT
 	MIN(total) AS 'min_total',
+
 	MAX(total) AS 'max_total',
+
 	MIN(hp) AS 'min_hp',
+
 	MAX(hp) AS 'max_hp',
+
 	MIN(ataque) AS 'min_ataque',
+
 	MAX(ataque) AS 'max_ataque',
+
 	MIN(defesa) AS 'min_defesa',
+
 	MAX(defesa) AS 'max_defesa',
+
 	MIN(ataque_especial) AS 'min_ataque_especial',
+
 	MAX(ataque_especial) AS 'max_ataque_especial',
+
 	MIN(defesa_especial) AS 'min_defesa_especial',
+
 	MAX(defesa_especial) AS 'max_defesa_especial',
+
 	MIN(velocidade) AS 'min_velocidade',
+
 	MAX(velocidade) AS 'max_velocidade',
+
 	MIN(taxa_captura) AS 'min_taxa_captura',
+
 	MAX(taxa_captura) AS 'max_taxa_captura'
+    
 FROM
 	Pokemon
 ;
 
-`` ``
+
+
 
 2. Quantas cores diferentes possuem os pokémos?
 
@@ -489,7 +505,8 @@ FROM
         Pokemon
 
 ;
-`` ``
+
+
 
 3. Qual é o peso médio dos pokémons?
 
@@ -505,6 +522,8 @@ FROM
 
 ;
 
+
+
 4. Qual é a soma das alturas dos pokémons?
 
 USE pokedex;
@@ -518,6 +537,8 @@ FROM
 	Pokemon
 
 ;
+
+
 
 5. Quantos pokémons estão cadastrados no banco de dados?
 
@@ -533,6 +554,8 @@ FROM
 
 ;
 
+
+
 6. Qual é o altura média dos pokémons?
 
 USE pokedex;
@@ -547,6 +570,8 @@ FROM
 
 ;
 
+
+
 7. Qual é o desvio padrão do valor de HP dos pokémons?
 
 USE pokedex;
@@ -560,6 +585,8 @@ FROM
 	Pokemon
 
 ;
+
+
 
 8. Quantos pokémons possuem tipo2?
 
@@ -577,6 +604,8 @@ WHERE tipo2 IS NOT NULL
 
 ;
 
+
+
 9. Quantos são os diferentes tipos primários dos pokémons?
 
 USE pokedex;
@@ -591,6 +620,8 @@ FROM
 
 ;
 
+
+
 10. Qual é a soma dos pesos dos pokémons?
 
 USE pokedex;
@@ -604,6 +635,8 @@ FROM
 	Pokemon
 
 ;
+
+
 
 11. Qual é a quantidade de Pokémons lendários e não lendários
 
@@ -623,6 +656,8 @@ GROUP BY lendario
 ORDER BY COUNT(lendario) DESC
 
 ;
+
+
 
 12. Qual é a quantidade de pokémons para cada uma das diferentes cores ordenadas decrescente?
 
@@ -644,6 +679,8 @@ ORDER BY COUNT(cor) DESC
 
 ;
 
+
+
 13. Qual é a média de peso e altura de cada um dos tipos primários dos pokémons? Ordene os resultados decrescente respectivamente por média de peso e altura.
 
 USE pokedex;
@@ -661,7 +698,10 @@ FROM
 GROUP BY tipo1
 
 ORDER BY AVG(peso_kg) DESC, AVG(altura_m) DESC
+
 ;
+
+
 
 14. Qual é a taxa de captura média por cor de cada um dos pokémons lendários?
 
@@ -682,6 +722,8 @@ GROUP BY cor
 ORDER BY AVG(taxa_captura) DESC
 ;
 
+
+
 15. Qual os tipos primários que possuem a taxa de captura média acima de 100
 
 USE pokedex;
@@ -699,6 +741,8 @@ GROUP BY tipo1
 
 ORDER BY taxa_captura_medio DESC
 ;
+
+
 
 16. Agrupados por cor, quais pokémons não lendários possuem média total abaixo de 400
 
@@ -720,6 +764,8 @@ ORDER BY AVG(total) DESC
 
 ;
 
+
+
 17. Qual o valor máximo total em cada uma das gerações?
 
 USE pokedex;
@@ -737,6 +783,8 @@ GROUP BY geracao
 ORDER BY max(total) DESC
 
 ;
+
+
 
 18. Quantos pokémons lendários existem em cada uma das gerações?
 
@@ -757,6 +805,8 @@ GROUP BY geracao
 ORDER BY COUNT(lendario) DESC
 
 ;
+
+
 
 19. Em cada uma das gerações, quantos pokémons tem tipos primários e secundários e qual a taxa_captura média deles?
 
@@ -779,6 +829,9 @@ GROUP BY geracao
 ORDER BY COUNT(tipo2) DESC
 
 ;
+
+
+
 
 20. Qual é a quantidade de cores de cada um dos pokémons lendários em todas as gerações?
 
