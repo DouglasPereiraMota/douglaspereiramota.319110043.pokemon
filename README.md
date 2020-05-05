@@ -532,3 +532,114 @@ FROM
 	Pokemon
 
 ;
+
+6. Qual é o altura média dos pokémons?
+
+USE pokedex;
+
+SELECT
+
+	AVG(altura_m) AS 'atura_media_pokemons'
+
+FROM
+
+	Pokemon
+
+;
+
+7. Qual é o desvio padrão do valor de HP dos pokémons?
+
+USE pokedex;
+
+SELECT
+
+	STD(hp) AS 'desvio_padrao'
+
+FROM
+
+	Pokemon
+
+;
+
+8. Quantos pokémons possuem tipo2?
+
+USE pokedex;
+
+SELECT
+
+	COUNT(*) AS 'pokemontipo2'
+
+FROM
+
+	Pokemon
+
+WHERE tipo2 IS NOT NULL
+
+;
+
+9. Quantos são os diferentes tipos primários dos pokémons?
+
+USE pokedex;
+
+SELECT
+
+	COUNT(DISTINCT tipo1) AS 'quantidade'
+
+FROM
+
+	Pokemon
+
+;
+
+10. Qual é a soma dos pesos dos pokémons?
+
+USE pokedex;
+
+SELECT
+
+	SUM(peso_kg) AS 'total'
+
+FROM
+
+	Pokemon
+
+;
+
+11. Qual é a quantidade de Pokémons lendários e não lendários
+
+USE pokedex;
+
+SELECT
+
+	lendario,
+
+	COUNT(lendario) AS 'quantidade'
+
+FROM
+	Pokemon
+
+GROUP BY lendario
+
+ORDER BY COUNT(lendario) DESC
+
+;
+
+12. Qual é a quantidade de pokémons para cada uma das diferentes cores ordenadas decrescente?
+
+USE pokedex;
+
+SELECT
+
+	cor,
+
+	COUNT(cor) AS 'quantidade'
+
+FROM
+
+	Pokemon
+
+GROUP BY cor
+
+ORDER BY COUNT(cor) DESC
+
+;
